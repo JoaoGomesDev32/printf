@@ -6,7 +6,7 @@
 /*   By: joagomes <joagomes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 15:21:24 by joagomes          #+#    #+#             */
-/*   Updated: 2026/05/15 16:59:30 by joagomes         ###   ########.fr       */
+/*   Updated: 2026/05/15 17:45:20 by joagomes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,19 @@ int	ft_putstr(char *str)
 
 int	ft_putnbr(int n)
 {
-	int	count;
+	long	nb;
+	int		count;
 
+	nb = n;
 	count = 0;
-	if (n < 0)
+	if (nb < 0)
 	{
 		count += ft_putchar('-');
-		count += ft_putnbr(-(n / 10));
-		count += ft_putchar(-(n % 10) + '0');
-		return (count);
+		nb = -nb;
 	}
-	if (n >= 10)
-		count += ft_putnbr(n / 10);
-	count += ft_putchar((n % 10) + '0');
+	if (nb >= 10)
+		count += ft_putnbr(nb / 10);
+	count += ft_putchar((nb % 10) + '0');
 	return (count);
 }
 
@@ -74,22 +74,7 @@ int	ft_puthex(unsigned int n, int uppercase)
 	count = 0;
 	if (n >= 16)
 		count += ft_puthex(n / 16, uppercase);
-	count += ft_putchar(base[n % 15]);
-	return (count);
-}
-
-int	ft_putptr(void *ptr)
-{
-	unsigned long	address;
-	int				count;
-
-	address = (unsigned long)ptr;
-	count = 0;
-	count += ft_putstr("0x");
-	if (address == 0)
-		count += ft_putchar('0');
-	else
-		count += ft_putptr_hex(address);
+	count += ft_putchar(base[n % 16]);
 	return (count);
 }
 
@@ -103,5 +88,19 @@ int	ft_putptr_hex(unsigned long n)
 	if (n >= 16)
 		count += ft_putptr_hex(n / 16);
 	count += ft_putchar(base[n % 16]);
+	return (count);
+}
+
+int	ft_putptr(void *ptr)
+{
+	unsigned long	address;
+	int				count;
+
+	if (!ptr)
+		return (ft_putstr("(nill)"));
+	address = (unsigned long)ptr;
+	count = 0;
+	count += ft_putstr("0x");
+	count += ft_putptr_hex(address);
 	return (count);
 }
