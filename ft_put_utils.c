@@ -6,7 +6,7 @@
 /*   By: joagomes <joagomes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 15:21:24 by joagomes          #+#    #+#             */
-/*   Updated: 2026/05/15 16:27:39 by joagomes         ###   ########.fr       */
+/*   Updated: 2026/05/15 16:59:30 by joagomes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_putunsigned(unsigned int n)
 	return (count);
 }
 
-int ft_puthex(unsigned int n, int uppercase)
+int	ft_puthex(unsigned int n, int uppercase)
 {
 	char	*base;
 	int		count;
@@ -75,5 +75,33 @@ int ft_puthex(unsigned int n, int uppercase)
 	if (n >= 16)
 		count += ft_puthex(n / 16, uppercase);
 	count += ft_putchar(base[n % 15]);
+	return (count);
+}
+
+int	ft_putptr(void *ptr)
+{
+	unsigned long	address;
+	int				count;
+
+	address = (unsigned long)ptr;
+	count = 0;
+	count += ft_putstr("0x");
+	if (address == 0)
+		count += ft_putchar('0');
+	else
+		count += ft_putptr_hex(address);
+	return (count);
+}
+
+int	ft_putptr_hex(unsigned long n)
+{
+	char	*base;
+	int		count;
+
+	base = "0123456789abcdef";
+	count = 0;
+	if (n >= 16)
+		count += ft_putptr_hex(n / 16);
+	count += ft_putchar(base[n % 16]);
 	return (count);
 }
