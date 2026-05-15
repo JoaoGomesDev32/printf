@@ -6,7 +6,7 @@
 #    By: joagomes <joagomes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/14 16:16:14 by joagomes          #+#    #+#              #
-#    Updated: 2026/05/14 16:16:15 by joagomes         ###   ########.fr        #
+#    Updated: 2026/05/15 13:31:14 by joagomes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,9 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
