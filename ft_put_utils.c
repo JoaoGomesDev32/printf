@@ -6,7 +6,7 @@
 /*   By: joagomes <joagomes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 15:21:24 by joagomes          #+#    #+#             */
-/*   Updated: 2026/05/15 17:45:20 by joagomes         ###   ########.fr       */
+/*   Updated: 2026/05/16 15:24:48 by joagomes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_putnbr(int n)
 		nb = -nb;
 	}
 	if (nb >= 10)
-		count += ft_putnbr(nb / 10);
+		count += ft_putnbr((int)nb / 10);
 	count += ft_putchar((nb % 10) + '0');
 	return (count);
 }
@@ -78,7 +78,7 @@ int	ft_puthex(unsigned int n, int uppercase)
 	return (count);
 }
 
-int	ft_putptr_hex(unsigned long n)
+static int	ft_putptr_hex(unsigned long n)
 {
 	char	*base;
 	int		count;
@@ -97,7 +97,7 @@ int	ft_putptr(void *ptr)
 	int				count;
 
 	if (!ptr)
-		return (ft_putstr("(nill)"));
+		return (ft_putstr("(nil)"));
 	address = (unsigned long)ptr;
 	count = 0;
 	count += ft_putstr("0x");
