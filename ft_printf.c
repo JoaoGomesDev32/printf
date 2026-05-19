@@ -6,7 +6,7 @@
 /*   By: joagomes <joagomes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 16:25:32 by joagomes          #+#    #+#             */
-/*   Updated: 2026/05/19 17:55:00 by joagomes         ###   ########.fr       */
+/*   Updated: 2026/05/19 17:58:45 by joagomes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_printf(const char *fmt, ...)
 	va_end(args);
 	return (count);
 }
-
+/*
 #include <stdio.h>
 #include <limits.h>
 #include "ft_printf.h"
@@ -143,3 +143,4 @@ int main(void)
 
 	return (0);
 }
+*/
