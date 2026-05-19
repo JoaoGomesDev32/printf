@@ -6,14 +6,14 @@
 #    By: joagomes <joagomes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/14 16:16:14 by joagomes          #+#    #+#              #
-#    Updated: 2026/05/15 17:12:22 by joagomes         ###   ########.fr        #
+#    Updated: 2026/05/19 17:06:48 by joagomes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libftprintf.a
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
-SRCS	= ft_printf.c ft_format.c ft_put_utils.c
+SRCS	= ft_printf.c ft_format.c ft_put_utils.c ft_put_ptr.c
 OBJS	= $(SRCS:.c=.o)
 
 all: $(NAME)
