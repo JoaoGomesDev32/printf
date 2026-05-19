@@ -6,9 +6,11 @@
 /*   By: joagomes <joagomes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 17:06:12 by joagomes          #+#    #+#             */
-/*   Updated: 2026/05/19 17:07:33 by joagomes         ###   ########.fr       */
+/*   Updated: 2026/05/19 17:10:00 by joagomes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 static int	ft_putptr_hex(unsigned long n)
 {

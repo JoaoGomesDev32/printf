@@ -6,7 +6,7 @@
 /*   By: joagomes <joagomes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 15:21:24 by joagomes          #+#    #+#             */
-/*   Updated: 2026/05/19 17:06:06 by joagomes         ###   ########.fr       */
+/*   Updated: 2026/05/19 17:22:05 by joagomes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_putnbr(int n)
 		nb = -nb;
 	}
 	if (nb >= 10)
-		count += ft_putnbr((int)nb / 10);
+		count += ft_putnbr((int)(nb / 10));
 	count += ft_putchar((nb % 10) + '0');
 	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: joagomes <joagomes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 16:25:32 by joagomes          #+#    #+#             */
-/*   Updated: 2026/05/19 17:00:00 by joagomes         ###   ########.fr       */
+/*   Updated: 2026/05/19 17:25:34 by joagomes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_printf(const char *fmt, ...)
 	va_end(args);
 	return (count);
 }
-/*testes
+/*
 #include <stdio.h>
 #include <limits.h>
 #include "ft_printf.h"
@@ -65,7 +65,7 @@ int	main(void)
 	printf("%u\n", 4294967295U);
 
 	ft_printf("%s\n", (char *)NULL);
-	printf("%s\n", (char *)NULL);
+	//printf("%s\n", (char *)NULL);
 
 	ft_printf("%p\n", NULL);
 	printf("%p\n", NULL);
