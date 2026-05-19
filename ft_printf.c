@@ -6,7 +6,7 @@
 /*   By: joagomes <joagomes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 16:25:32 by joagomes          #+#    #+#             */
-/*   Updated: 2026/05/19 17:25:34 by joagomes         ###   ########.fr       */
+/*   Updated: 2026/05/19 17:47:18 by joagomes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	main(void)
 	a = ft_printf("Hello %d\n", 42);
 	b = printf("Hello %d\n", 42);
 
-	printf("ft_printf: %d\n", a);
+	ft_printf("ft_printf: %d\n", a);
 	printf("printf: %d\n", b);
 	
 	ft_printf("%x\n", 42);
