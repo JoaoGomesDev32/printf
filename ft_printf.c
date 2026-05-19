@@ -6,7 +6,7 @@
 /*   By: joagomes <joagomes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 16:25:32 by joagomes          #+#    #+#             */
-/*   Updated: 2026/05/19 17:47:18 by joagomes         ###   ########.fr       */
+/*   Updated: 2026/05/19 17:55:00 by joagomes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,69 +36,110 @@ int	ft_printf(const char *fmt, ...)
 	va_end(args);
 	return (count);
 }
-/*
+
 #include <stdio.h>
 #include <limits.h>
 #include "ft_printf.h"
 
-int	main(void)
+int main(void)
 {
-	int a;
-	int b;
+	int	a;
+	int	b;
 
+	printf("=== %%d basico ===\n");
 	a = ft_printf("Hello %d\n", 42);
 	b = printf("Hello %d\n", 42);
+	printf("ft:%d | printf:%d\n\n", a, b);
 
-	ft_printf("ft_printf: %d\n", a);
-	printf("printf: %d\n", b);
-	
-	ft_printf("%x\n", 42);
-	printf("%x\n", 42);
+	printf("=== INT_MIN ===\n");
+	a = ft_printf("%d\n", INT_MIN);
+	b = printf("%d\n", INT_MIN);
+	printf("ft:%d | printf:%d\n\n", a, b);
 
-	ft_printf("%X\n", 42);
-	printf("%X\n", 42);
+	printf("=== INT_MAX ===\n");
+	a = ft_printf("%d\n", INT_MAX);
+	b = printf("%d\n", INT_MAX);
+	printf("ft:%d | printf:%d\n\n", a, b);
 
-	ft_printf("%d\n", INT_MIN);
-	printf("%d\n", INT_MIN);
+	printf("=== zero decimal ===\n");
+	a = ft_printf("%d\n", 0);
+	b = printf("%d\n", 0);
+	printf("ft:%d | printf:%d\n\n", a, b);
 
-	ft_printf("%u\n", 4294967295U);
-	printf("%u\n", 4294967295U);
+	printf("=== %%u maximo ===\n");
+	a = ft_printf("%u\n", 4294967295U);
+	b = printf("%u\n", 4294967295U);
+	printf("ft:%d | printf:%d\n\n", a, b);
 
-	ft_printf("%s\n", (char *)NULL);
-	//printf("%s\n", (char *)NULL);
+	printf("=== %%u zero ===\n");
+	a = ft_printf("%u\n", 0);
+	b = printf("%u\n", 0);
+	printf("ft:%d | printf:%d\n\n", a, b);
 
-	ft_printf("%p\n", NULL);
-	printf("%p\n", NULL);
+	printf("=== %%x lowercase ===\n");
+	a = ft_printf("%x\n", 42);
+	b = printf("%x\n", 42);
+	printf("ft:%d | printf:%d\n\n", a, b);
 
-	ft_printf("%x\n", 0);
-	printf("%x\n", 0);
+	printf("=== %%X uppercase ===\n");
+	a = ft_printf("%X\n", 42);
+	b = printf("%X\n", 42);
+	printf("ft:%d | printf:%d\n\n", a, b);
 
-	ft_printf("%X\n", 0);
-	printf("%X\n", 0);
+	printf("=== %%x zero ===\n");
+	a = ft_printf("%x\n", 0);
+	b = printf("%x\n", 0);
+	printf("ft:%d | printf:%d\n\n", a, b);
 
-	ft_printf("%u\n", 0);
-	printf("%u\n", 0);
+	printf("=== %%c normal ===\n");
+	a = ft_printf("%c\n", 'A');
+	b = printf("%c\n", 'A');
+	printf("ft:%d | printf:%d\n\n", a, b);
 
-	ft_printf("%d\n", 0);
-	printf("%d\n", 0);
+	printf("=== %%c nulo ===\n");
+	a = ft_printf("%c\n", 0);
+	b = printf("%c\n", 0);
+	printf("ft:%d | printf:%d\n\n", a, b);
 
-	ft_printf("%%\n");
-	printf("%%\n");
+	printf("=== %%s normal ===\n");
+	a = ft_printf("%s\n", "hello");
+	b = printf("%s\n", "hello");
+	printf("ft:%d | printf:%d\n\n", a, b);
 
-	ft_printf("%d %s %x %X %p %%\n",
-		42,
-		"hello",
-		42,
-		42,
-		"test");
+	printf("=== %%s vazia ===\n");
+	a = ft_printf("%s\n", "");
+	b = printf("%s\n", "");
+	printf("ft:%d | printf:%d\n\n", a, b);
 
-	printf("%d %s %x %X %p %%\n",
-		42,
-		"hello",
-		42,
-		42,
-		"test");
+	printf("=== %%s NULL ===\n");
+	a = ft_printf("%s\n", (char *)NULL);
+	printf("ft:%d\n\n", a);
+
+	printf("=== %%p valido ===\n");
+	int x = 42;
+	a = ft_printf("%p\n", &x);
+	b = printf("%p\n", &x);
+	printf("ft:%d | printf:%d\n\n", a, b);
+
+	printf("=== %%p NULL ===\n");
+	a = ft_printf("%p\n", NULL);
+	b = printf("%p\n", NULL);
+	printf("ft:%d | printf:%d\n\n", a, b);
+
+	printf("=== %%%% ===\n");
+	a = ft_printf("%%\n");
+	b = printf("%%\n");
+	printf("ft:%d | printf:%d\n\n", a, b);
+
+	printf("=== 100%%%% ===\n");
+	a = ft_printf("100%%\n");
+	b = printf("100%%\n");
+	printf("ft:%d | printf:%d\n\n", a, b);
+
+	printf("=== combinado ===\n");
+	a = ft_printf("%d %s %x %X %p %%\n", 42, "hello", 42, 42, &x);
+	b = printf("%d %s %x %X %p %%\n", 42, "hello", 42, 42, &x);
+	printf("ft:%d | printf:%d\n\n", a, b);
 
 	return (0);
 }
-*/
